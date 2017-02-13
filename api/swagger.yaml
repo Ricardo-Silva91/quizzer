@@ -1,0 +1,341 @@
+---
+swagger: "2.0"
+info:
+  description: "API for quizzer REST Server"
+  version: "0.0.0"
+  title: "Quizzer REST API"
+host: "localhost:4000"
+basePath: "/"
+schemes:
+- "http"
+produces:
+- "application/json"
+paths:
+  /:
+    get:
+      tags:
+      - "public"
+      summary: "nothing"
+      description: "just to see if server is awake.\n"
+      operationId: "rootGET"
+      parameters: []
+      responses:
+        200:
+          description: "good evening... string"
+          schema:
+            type: "string"
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+      x-swagger-router-controller: "Public"
+  /getLeaderBoard:
+    get:
+      tags:
+      - "public"
+      summary: "get the leaderboard"
+      description: "get leaderboard with 10 best players"
+      operationId: "leaderBoardGET"
+      parameters: []
+      responses:
+        200:
+          description: "the leaderboard"
+          schema:
+            $ref: "#/definitions/leaderBoard"
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+      x-swagger-router-controller: "Public"
+  /getQuestion:
+    get:
+      tags:
+      - "user"
+      summary: "get a question"
+      description: "get a random question from server"
+      operationId: "questionGET"
+      parameters:
+      - name: "token"
+        in: "query"
+        description: "The user's token"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "the question"
+          schema:
+            $ref: "#/definitions/question"
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+      x-swagger-router-controller: "User"
+  /getUserExists:
+    get:
+      tags:
+      - "public"
+      summary: "check username"
+      description: "check if username exists"
+      operationId: "userExistsGET"
+      parameters:
+      - name: "user"
+        in: "query"
+        description: "The username"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "the result"
+          schema:
+            $ref: "#/definitions/Ok_res"
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+      x-swagger-router-controller: "Public"
+  /getUsers:
+    get:
+      tags:
+      - "admin"
+      summary: "list users"
+      description: "check list users and their information"
+      operationId: "usersGET"
+      parameters:
+      - name: "token"
+        in: "query"
+        description: "The user's token"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "the result"
+          schema:
+            $ref: "#/definitions/usersInfo"
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+      x-swagger-router-controller: "Admin"
+  /register:
+    post:
+      tags:
+      - "user"
+      summary: "register"
+      description: "user sends initial info and registers."
+      operationId: "registerPOST"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "request."
+        required: false
+        schema:
+          $ref: "#/definitions/register_info"
+      responses:
+        200:
+          description: "result"
+          schema:
+            $ref: "#/definitions/login_res"
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+      x-swagger-router-controller: "User"
+  /login:
+    post:
+      tags:
+      - "user"
+      summary: "login"
+      description: "user sends credentials and gets token."
+      operationId: "loginPOST"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "request."
+        required: false
+        schema:
+          $ref: "#/definitions/login_info"
+      responses:
+        200:
+          description: "result"
+          schema:
+            $ref: "#/definitions/login_res"
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+      x-swagger-router-controller: "User"
+  /answerQuestion:
+    post:
+      tags:
+      - "user"
+      summary: "answer a Question"
+      description: "user sends answer to current question."
+      operationId: "answerQuestionPOST"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "answer."
+        required: false
+        schema:
+          $ref: "#/definitions/answer_question"
+      responses:
+        200:
+          description: "result"
+          schema:
+            $ref: "#/definitions/answer_question_res"
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+      x-swagger-router-controller: "User"
+  /makeUserAdmin:
+    post:
+      tags:
+      - "admin"
+      summary: "make a user admin"
+      description: "give an user admin privileges"
+      operationId: "makeUserAdminPOST"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "request."
+        required: false
+        schema:
+          $ref: "#/definitions/makeUserAdmin_req"
+      responses:
+        200:
+          description: "result"
+          schema:
+            $ref: "#/definitions/Ok_res"
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+      x-swagger-router-controller: "Admin"
+definitions:
+  usersInfo:
+    type: "object"
+    properties:
+      result:
+        type: "string"
+      users:
+        type: "array"
+        items:
+          $ref: "#/definitions/usersInfo_users"
+  leaderBoard:
+    type: "object"
+    properties:
+      result:
+        type: "string"
+      leaderboard:
+        type: "array"
+        items:
+          $ref: "#/definitions/leaderBoard_leaderboard"
+  question:
+    type: "object"
+    properties:
+      result:
+        type: "string"
+      question:
+        type: "string"
+      pic:
+        type: "string"
+      answers:
+        type: "array"
+        items:
+          $ref: "#/definitions/question_answers"
+  answer_question:
+    type: "object"
+    properties:
+      token:
+        type: "string"
+      answer:
+        type: "integer"
+        format: "int32"
+  answer_question_res:
+    type: "object"
+    properties:
+      result:
+        type: "string"
+      current_score:
+        type: "integer"
+        format: "int32"
+  register_info:
+    type: "object"
+    properties:
+      user:
+        type: "string"
+      pass:
+        type: "string"
+      full_name:
+        type: "string"
+      favorite_ice_cream:
+        type: "string"
+      email:
+        type: "string"
+  login_info:
+    type: "object"
+    properties:
+      user:
+        type: "string"
+      pass:
+        type: "string"
+  login_res:
+    type: "object"
+    properties:
+      token:
+        type: "string"
+      user_type:
+        type: "string"
+      result:
+        type: "string"
+  makeUserAdmin_req:
+    type: "object"
+    properties:
+      token:
+        type: "string"
+      username:
+        type: "string"
+  Ok_res:
+    type: "object"
+    properties:
+      result:
+        type: "string"
+  Error:
+    type: "object"
+    properties:
+      code:
+        type: "integer"
+        format: "int32"
+      message:
+        type: "string"
+      fields:
+        type: "string"
+  usersInfo_users:
+    properties:
+      user:
+        type: "string"
+      full_name:
+        type: "string"
+      favorite_ice_cream:
+        type: "string"
+      email:
+        type: "string"
+      score:
+        type: "integer"
+        format: "int32"
+      last_access:
+        type: "string"
+  leaderBoard_leaderboard:
+    properties:
+      user:
+        type: "string"
+      score:
+        type: "integer"
+        format: "int32"
+  question_answers:
+    properties:
+      text:
+        type: "string"
+      pic:
+        type: "string"
