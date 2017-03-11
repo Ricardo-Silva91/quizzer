@@ -1,14 +1,29 @@
 [
   {
-    "user": "Rofler",
+    "user": "rofler",
     "pass": "joguetes",
     "full_name": "RoflDoctor",
     "favorite_ice_cream": "vanilla",
     "email": "after@shave.com",
     "score": 0,
     "id": 0,
-    "last_access": "2017-02-13T23:24:56.728Z",
-    "token": "PZzDtpurJCJ63WZ23q4BnMz8nWDUvdRy",
+    "last_access": "2017-03-10T22:55:35.524Z",
+    "token": "aououni8k9exhmq6hov4sfqgsv52piro",
+    "user_type": "normal",
+    "finished_quizzes": []
+  },
+  {
+    "user": "string",
+    "pass": "string",
+    "full_name": "string",
+    "favorite_ice_cream": "string",
+    "email": "string",
+    "score": 0,
+    "id": 1,
+    "finished_quizzes": [
+    ],
+    "last_access": "2017-03-11T23:11:24.402Z",
+    "token": "T3h0qU9dG9e0PoFAvR2Z5GCS1ZGsfgeO",
     "user_type": "normal"
   }
 ]

@@ -70,6 +70,81 @@ paths:
           schema:
             $ref: "#/definitions/Error"
       x-swagger-router-controller: "User"
+  /getQuizzes:
+    get:
+      tags:
+      - "user"
+      summary: "get list of quizzes"
+      description: "get brief list of quizzes with description"
+      operationId: "getQuizzesGET"
+      parameters:
+      - name: "token"
+        in: "query"
+        description: "The user's token"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "the quizzes"
+          schema:
+            $ref: "#/definitions/quizzesBrief"
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+      x-swagger-router-controller: "User"
+  /getMyScores:
+    get:
+      tags:
+      - "user"
+      summary: "get user scores"
+      description: "get list of finished quizzes and scored results"
+      operationId: "getMyScoresGET"
+      parameters:
+      - name: "token"
+        in: "query"
+        description: "The user's token"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "the scores"
+          schema:
+            $ref: "#/definitions/userScores"
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+      x-swagger-router-controller: "User"
+  /getPic:
+    get:
+      tags:
+      - "user"
+      summary: "get list of quizzes"
+      description: "get brief list of quizzes with description"
+      operationId: "getPicGET"
+      parameters:
+      - name: "token"
+        in: "query"
+        description: "The user's token"
+        required: true
+        type: "string"
+      - name: "pic"
+        in: "query"
+        description: "The pic id"
+        required: true
+        type: "integer"
+        format: "int32"
+      responses:
+        200:
+          description: "the quizzes"
+          schema:
+            type: "file"
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+      x-swagger-router-controller: "User"
   /getUserExists:
     get:
       tags:
@@ -164,6 +239,30 @@ paths:
           schema:
             $ref: "#/definitions/Error"
       x-swagger-router-controller: "User"
+  /startQuiz:
+    post:
+      tags:
+      - "user"
+      summary: "start taking a Quiz"
+      description: "user begins taking a quiz and answering questions."
+      operationId: "startQuizPOST"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "token."
+        required: true
+        schema:
+          $ref: "#/definitions/start_quiz_req"
+      responses:
+        200:
+          description: "result"
+          schema:
+            $ref: "#/definitions/Ok_res"
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+      x-swagger-router-controller: "User"
   /answerQuestion:
     post:
       tags:
@@ -231,6 +330,43 @@ definitions:
         type: "array"
         items:
           $ref: "#/definitions/leaderBoard_leaderboard"
+
+  quizBrief:
+    type: "object"
+    properties:
+      quiz_id:
+        type: "integer"
+        format: "int32"
+      quiz_name:
+        type: "string"
+      quiz_desc:
+        type: "string"
+
+  userScore:
+    type: "object"
+    properties:
+      quiz_id:
+        type: "integer"
+        format: "int32"
+      score:
+        type: "number"
+        format: "float"
+
+  userScores:
+    type: "array"
+    items:
+      $ref: "#/definitions/userScore"
+
+
+  quizzesBrief:
+    type: "object"
+    properties:
+      result:
+        type: "string"
+      quizzes:
+        type: "array"
+        items:
+          $ref: "#/definitions/quizBrief"
   question:
     type: "object"
     properties:
@@ -244,6 +380,14 @@ definitions:
         type: "array"
         items:
           $ref: "#/definitions/question_answers"
+  start_quiz_req:
+    type: "object"
+    properties:
+      token:
+        type: "string"
+      quiz_id:
+        type: "integer"
+        format: "int32"
   answer_question:
     type: "object"
     properties:
@@ -257,9 +401,10 @@ definitions:
     properties:
       result:
         type: "string"
-      current_score:
-        type: "integer"
-        format: "int32"
+      answer_result:
+        type: "string"
+      quiz_finished:
+        type: "string"
   register_info:
     type: "object"
     properties:

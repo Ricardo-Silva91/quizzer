@@ -278,7 +278,8 @@ exports.addUser = function (users, username, password, full_name, favorite_ice_c
         favorite_ice_cream: favorite_ice_cream,
         email: email,
         score: 0,
-        id: id
+        id: id,
+        finished_quizzes: []
     };
 
     users.push(newUser);
@@ -287,6 +288,55 @@ exports.addUser = function (users, username, password, full_name, favorite_ice_c
 
 };
 
+exports.briefQuizzes = function (quizzes) {
+
+    var briefQuizzes = [];
+
+    for (var quiz in quizzes)
+    {
+        briefQuizzes.push({
+            id: 0,
+            name: "test quizz",
+            description: "the test quiz"
+        })
+    }
+
+    return briefQuizzes;
+
+};
+
+exports.countOcs = function (list, element, oc) {
+
+    var numberOfOcs = 0;
+
+    for(var i in list)
+    {
+        if(i[element] == oc)
+        {
+            numberOfOcs++;
+        }
+    }
+
+    return numberOfOcs;
+
+}
+
+exports.countOcsInStringArray = function (list, oc) {
+
+    var numberOfOcs = 0;
+
+    for(var i in list)
+    {
+        if(list[i] == oc)
+        {
+            numberOfOcs++;
+        }
+    }
+
+    //console.log("number of ocs: " + numberOfOcs);
+    return numberOfOcs;
+
+}
 
 
 /************ Private Methods/Variables ***************/
