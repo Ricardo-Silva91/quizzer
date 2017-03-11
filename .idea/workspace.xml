@@ -35,7 +35,7 @@
         <entry file="file://$PROJECT_DIR$/controllers/UserService.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="100">
-              <caret line="367" column="0" lean-forward="true" selection-start-line="367" selection-start-column="0" selection-end-line="367" selection-end-column="0" />
+              <caret line="367" column="0" lean-forward="false" selection-start-line="367" selection-start-column="0" selection-end-line="367" selection-end-column="0" />
               <folding>
                 <element signature="e#265#3915#0" expanded="false" />
                 <element signature="e#3964#6434#0" expanded="false" />
@@ -44,6 +44,7 @@
                 <element signature="e#12042#14732#0" expanded="false" />
                 <element signature="e#14785#17049#0" expanded="false" />
                 <element signature="e#17103#18554#0" expanded="false" />
+                <marker date="1489274307162" expanded="true" signature="2724:3091" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -52,8 +53,8 @@
       <file leaf-file-name="swagger.yaml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/api/swagger.yaml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="363">
-              <caret line="479" column="22" lean-forward="false" selection-start-line="479" selection-start-column="22" selection-end-line="479" selection-end-column="22" />
+            <state relative-caret-position="40">
+              <caret line="460" column="11" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="486" selection-end-column="0" />
               <folding>
                 <element signature="e#212#666#0" expanded="false" />
                 <element signature="e#669#1171#0" expanded="false" />
@@ -87,7 +88,7 @@
         <entry file="file://$PROJECT_DIR$/data/users.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="136">
-              <caret line="8" column="12" lean-forward="true" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
+              <caret line="8" column="12" lean-forward="false" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -252,7 +253,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../javascript-client" />
     <property name="nodejs_interpreter_path" value="D:/ProgramFiles/node/node" />
     <property name="js.eslint.eslintPackage" value="" />
     <property name="js-jscs-nodeInterpreter" value="D:\ProgramFiles\node\node.exe" />
@@ -357,12 +358,12 @@
       <workItem from="1487521496011" duration="34000" />
       <workItem from="1489179613542" duration="9421000" />
       <workItem from="1489256479353" duration="510000" />
-      <workItem from="1489272389056" duration="2131000" />
+      <workItem from="1489272389056" duration="2394000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18010000" />
+    <option name="totallyTimeSpent" value="18273000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -375,7 +376,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="974" height="1084" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.46551725" order="3" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32914045" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -429,6 +430,7 @@
             <element signature="e#12042#14732#0" expanded="false" />
             <element signature="e#14785#17049#0" expanded="false" />
             <element signature="e#17103#18554#0" expanded="false" />
+            <marker date="1489274307162" expanded="true" signature="2724:3091" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -509,6 +511,7 @@
             <element signature="e#12042#14732#0" expanded="false" />
             <element signature="e#14785#17049#0" expanded="false" />
             <element signature="e#17103#18554#0" expanded="false" />
+            <marker date="1489274307162" expanded="true" signature="2724:3091" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -588,6 +591,7 @@
             <element signature="e#12042#14732#0" expanded="false" />
             <element signature="e#14785#17049#0" expanded="false" />
             <element signature="e#17103#18554#0" expanded="false" />
+            <marker date="1489274307162" expanded="true" signature="2724:3091" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -660,6 +664,7 @@
             <element signature="e#12042#14732#0" expanded="false" />
             <element signature="e#14785#17049#0" expanded="false" />
             <element signature="e#17103#18554#0" expanded="false" />
+            <marker date="1489274307162" expanded="true" signature="2724:3091" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -829,7 +834,7 @@
     <entry file="file://$PROJECT_DIR$/data/users.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
-          <caret line="8" column="12" lean-forward="true" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
+          <caret line="8" column="12" lean-forward="false" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
           <folding />
         </state>
       </provider>
@@ -837,7 +842,7 @@
     <entry file="file://$PROJECT_DIR$/controllers/UserService.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
-          <caret line="367" column="0" lean-forward="true" selection-start-line="367" selection-start-column="0" selection-end-line="367" selection-end-column="0" />
+          <caret line="367" column="0" lean-forward="false" selection-start-line="367" selection-start-column="0" selection-end-line="367" selection-end-column="0" />
           <folding>
             <element signature="e#265#3915#0" expanded="false" />
             <element signature="e#3964#6434#0" expanded="false" />
@@ -846,14 +851,15 @@
             <element signature="e#12042#14732#0" expanded="false" />
             <element signature="e#14785#17049#0" expanded="false" />
             <element signature="e#17103#18554#0" expanded="false" />
+            <marker date="1489274307162" expanded="true" signature="2724:3091" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/api/swagger.yaml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="479" column="22" lean-forward="false" selection-start-line="479" selection-start-column="22" selection-end-line="479" selection-end-column="22" />
+        <state relative-caret-position="40">
+          <caret line="460" column="11" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="486" selection-end-column="0" />
           <folding>
             <element signature="e#212#666#0" expanded="false" />
             <element signature="e#669#1171#0" expanded="false" />
