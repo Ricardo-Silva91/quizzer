@@ -476,8 +476,8 @@ definitions:
       user:
         type: "string"
       score:
-        type: "integer"
-        format: "int32"
+        type: "number"
+        format: "float"
   question_answers:
     properties:
       text:
